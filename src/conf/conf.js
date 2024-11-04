@@ -7,5 +7,5 @@ const conf ={
     appwriteBucketId:String(import.meta.env.VITE_APPWRITE_BUCKET_ID),
     rteapikey:String(import.meta.env.VITE_RTE_API_KEY)
 }
-console.log(conf)
+
 export default conf
