@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react'
 import service from '../../appwrite/config'
 import {Container, PostCard} from '../'
-
+import { useSelector } from 'react-redux'
+import { Query } from 'appwrite'
 function Homecomponent() {
-    const [posts, setPosts] = useState([])
-
+   const [posts, setPosts] = useState([])
+   const id=useSelector((state)=>state.auth.userdata?.$id)
+   const draftQuery=[Query.equal("userId", String(id))];
     useEffect(() => {
-        service.getPosts().then((posts) => {
+        service.getPosts(draftQuery).then((posts) => {
             if (posts) {
                 setPosts(posts.documents)
             }
@@ -19,8 +21,8 @@ function Homecomponent() {
                 <Container>
                     <div className="flex flex-wrap">
                         <div className="p-2 w-full">
-                            <h1 className="text-2xl font-bold hover:text-gray-500">
-                                Login to read posts
+                            <h1 className=" font-mono hover:text-gray-500">
+                            You don’t have any posts yet
                             </h1>
                         </div>
                     </div>
@@ -29,17 +31,19 @@ function Homecomponent() {
         )
     }
     return (
-        <div className='w-full py-8'>
-            <Container>
-                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4'>
-                    {posts.map((post) => (
-                        <div key={post.$id} className='p-2 w-1/4'>
-                            <PostCard {...post} />
-                        </div>
-                    ))}
-                </div>
-            </Container>
-        </div>
+        <div>
+            <h1 className="font-bold  p-4 font-mono hover:underline">
+                            Your Articles
+                            </h1>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            {posts.map((post) => (
+              <div key={post.$id} className="p-2 w-full">
+                <PostCard {...post} />
+              </div>
+            ))}
+          </div>
+          </div>
+       
     )
 }
 

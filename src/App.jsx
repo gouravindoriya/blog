@@ -28,7 +28,7 @@ function App() {
   return !loading?( // do its now !
     <>
       <Header/>
-      <main className='w-full min-h-lvh pl-16 pr-16 bg-red-300'>
+      <main className='w-full min-h-lvh md:px-16 '>
          <Outlet />
       </main>
       <Footer/>

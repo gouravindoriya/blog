@@ -19,8 +19,8 @@ const Header = () => {
   ];
 
   return (
-    <header className="w-full bg-emerald-400 text-white py-2 px-6 shadow-md">
-      <Container>
+    <header className="w-full  border-b-black border py-2 px-6 shadow-md">
+      
         <nav className="flex items-center justify-between">
           <div className="text-xl font-bold">
             {/* <Link to="/">Logo</Link> */}
@@ -42,12 +42,12 @@ const Header = () => {
             
             {authstatus && (
               <li>
-                <LogoutBtn className="ml-4 text-emerald-700 hover:text-white" />
+                <LogoutBtn className="ml-4 " />
               </li>
             )}
           </ul>
         </nav>
-      </Container>
+      
     </header>
   );
 };

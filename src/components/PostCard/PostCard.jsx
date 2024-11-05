@@ -6,14 +6,12 @@ const PostCard = ({$id,title,featureimage}) => {
 
   return (
     <Link to={`/post/${$id}`}>
-     <div className='w-full p-4 rounded-md'>
-       
-        
-        <img className='min-w-56  rounded-md' src={service.previewfile(featureimage)} alt={title} />
-       
-       <h2>{title}</h2>
-
-     </div>
+     <div className="bg-white border border-black p-4  shadow-lg h-52 overflow-hidden  w-full hover:rounded-md">
+      <div className="aspect-video h-4/5 w-full ">
+        <img src={service.previewfile(featureimage)} alt={title} className="w-full mx-auto h-full object-contain " />
+      </div>
+      <h3 className="font-mono  text-center p-2 capitalize">{title}</h3>
+    </div>
     </Link>
   )
 }
