@@ -21,17 +21,14 @@ function PostForm({ post }) {
     const userData = useSelector((state) => state.auth.userdata);
 
     const submit = async (data) => {
-        console.log(data)
         setLoading(true);
         try {
             let fileId;
 
             if (data.image && data.image[0]) {
-                
                 const file = await service.uploadfile(data.image[0]);
-                
                 fileId = file?.$id;
-               
+
                 // If updating a post, delete the previous image if a new one was uploaded
                 if (post && post.featureimage) {
                     await service.deletefile(post.featureimage);
@@ -44,20 +41,14 @@ function PostForm({ post }) {
                     featureimage: fileId || post.featureimage,
                 });
                 if (updatedPost) navigate(`/post/${updatedPost.$id}`);
-            } 
-            else {
-               console.log({...data})
-                
+            } else {
                 const newPost = await service.createPost({
-    
-                    title:data.title,
-                    slug:data.slug,
-                    content:data.content,
-                    status:data.status,
-                    featureimage:fileId,
+                    title: data.title,
+                    slug: data.slug,
+                    content: data.content,
+                    status: data.status,
+                    featureimage: fileId,
                     userId: userData.$id,
-
-                   
                 });
                 if (newPost) navigate(`/post/${newPost.$id}`);
             }
@@ -98,31 +89,37 @@ function PostForm({ post }) {
     }, [watch("image")]);
 
     return (
-        <form onSubmit={handleSubmit(submit)} className=" md:flex md:flex-wrap ">
-            <div className="md:w-2/3 px-2">
+        <form onSubmit={handleSubmit(submit)} className="flex flex-col md:flex-row md:flex-wrap p-5 max-w-screen mx-auto bg-white shadow-lg rounded-lg">
+            <div className="md:w-2/3 px-2 mb-6 md:mb-0">
                 <Input
                     label="Title :"
                     placeholder="Title"
-                    className="mb-4 px-3 py-2 rounded-md w-full md:w-3/4 border border-gray-300 shadow-sm focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-200 ease-in-out"
+                    className="mb-4 w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50"
                     {...register("title", { required: true })}
                 />
                 <Input
-                    label="slug :"
-                    placeholder="slug"
-                    className="mb-4 px-3 py-2 rounded-md w-full md:w-3/4 border border-gray-300 shadow-sm focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-200 ease-in-out"
+                    label="Slug :"
+                    placeholder="Slug"
+                    className="mb-4 w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50"
                     {...register("slug", { required: true })}
                     onInput={(e) => {
                         setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
                     }}
                 />
-                <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
+                <RTE
+                    label="Content :"
+                    name="content"
+                    control={control}
+                    defaultValue={getValues("content")}
+                    className="mb-4"
+                />
             </div>
             
             <div className="md:w-1/3 px-2">
                 <Input
                     label="Featured Image :"
                     type="file"
-                    className="mb-4"
+                    className="mb-4 w-full"
                     accept="image/png, image/jpg, image/jpeg, image/gif"
                     {...register("image", { required: !post })}
                 />
@@ -132,18 +129,22 @@ function PostForm({ post }) {
                         <img
                             src={imagePreview || service.previewfile(post.featureimage)}
                             alt={post?.title || "Preview"}
-                            className="rounded-lg"
+                            className="rounded-lg w-full"
                         />
                     </div>
                 )}
                 <Select
                     options={["active", "inactive"]}
-                    label="status"
+                    label="Status"
                     className="mb-4"
                     {...register("status", { required: true })}
                 />
-
-                <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full" disabled={loading}>
+                <Button
+                    type="submit"
+                    bgColor={post ? "bg-green-500" : undefined}
+                    className="w-full text-white font-semibold py-3 mt-40 rounded-lg transition duration-200 hover:bg-black"
+                    disabled={loading}
+                >
                     {loading ? "Processing..." : post ? "Update" : "Submit"}
                 </Button>
             </div>
@@ -152,4 +153,3 @@ function PostForm({ post }) {
 }
 
 export default PostForm;
-

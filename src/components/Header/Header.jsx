@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+import { SlHome } from "react-icons/sl";
 const Header = () => {
   const authstatus = useSelector((state) => state.auth.status);
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const Header = () => {
 
  
   const navItem = [
-    { name: "Home", slug: "/", active: true },
+    { name: <SlHome />, slug: "/", active: true },
     { name: "Login", slug: "/login", active: !authstatus },
     { name: "Signup", slug: "/signup", active: !authstatus },
     { name: "All Posts", slug: "/all-posts", active: authstatus },
@@ -19,11 +20,11 @@ const Header = () => {
   ];
 
   return (
-    <header className="w-full  border-b-black border py-2 px-6 shadow-md">
+    <header className="w-full  border-b-black border py-2 px-6 shadow-md font-mono capitalize">
       
         <nav className="flex items-center justify-between">
-          <div className="text-xl font-bold">
-            {/* <Link to="/">Logo</Link> */}
+          <div className="text-xl font-bold  hidden md:block">
+            
             {authstatus && username}
           </div>
           <ul className="flex items-center space-x-6">
@@ -32,20 +33,20 @@ const Header = () => {
                 <li key={item.name}>
                   <button
                     onClick={() => navigate(item.slug)}
-                    className="hover:text-emerald-100 transition"
+                    className="transition hover:underline"
                   >
                     {item.name}
                   </button>
                 </li>
               ) : null
             )}
-            
+            </ul>
             {authstatus && (
-              <li>
+              
                 <LogoutBtn className="ml-4 " />
-              </li>
+              
             )}
-          </ul>
+          
         </nav>
       
     </header>
