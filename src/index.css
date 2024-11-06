@@ -1,3 +1,148 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+/* General Reset for Consistency Across Browsers */
+
+/*  written by chat GPT because tinymce editor give html but by using tailwinf default css are block by tailwind */
+.custom-css * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+.custom-css {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+/* Headings */
+.custom-css h1, .custom-css h2, .custom-css h3, .custom-css h4, .custom-css h5, .custom-css h6 {
+    color: #444;
+    margin-bottom: 0.5em;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.custom-css h1 { font-size: 2.5rem; }
+.custom-css h2 { font-size: 2rem; }
+.custom-css h3 { font-size: 1.75rem; }
+.custom-css h4 { font-size: 1.5rem; }
+.custom-css h5 { font-size: 1.25rem; }
+.custom-css h6 { font-size: 1rem; }
+
+/* Paragraphs */
+.custom-css p {
+    margin-bottom: 1em;
+    color: #555;
+}
+
+/* Links */
+.custom-css a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.custom-css a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Lists */
+.custom-css ul, .custom-css ol {
+    margin: 1em 0;
+    padding-left: 1.5em;
+}
+
+.custom-css ul li, .custom-css ol li {
+    margin-bottom: 0.5em;
+}
+
+/* Images */
+.custom-css img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1em 0;
+}
+
+/* Tables */
+.custom-css table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+.custom-css th, .custom-css td {
+    padding: 0.75em;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.custom-css th {
+    background-color: #f3f3f3;
+    font-weight: bold;
+}
+
+/* Forms */
+.custom-css input, .custom-css textarea, .custom-css select, .custom-css button {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.custom-css input:focus, .custom-css textarea:focus, .custom-css select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Buttons */
+.custom-css button {
+    padding: 0.5em 1em;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.custom-css button:hover {
+    background-color: #2980b9;
+}
+
+/* Blockquotes */
+.custom-css blockquote {
+    padding: 0.75em 1.5em;
+    color: #666;
+    background-color: #f1f1f1;
+    border-left: 5px solid #ccc;
+    margin: 1em 0;
+}
+
+/* Code */
+.custom-css code {
+    background-color: #f4f4f4;
+    padding: 0.25em 0.5em;
+    border-radius: 4px;
+    font-family: Consolas, monospace;
+    font-size: 0.9em;
+}
+
+/* Misc */
+.custom-css hr {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 1.5em 0;
+}
