@@ -31,7 +31,7 @@ function Homecomponent() {
         )
     }
     return (
-        <div className='py-8'>
+        <div className='px-8'>
             <h1 className="font-bold  p-4  font-mono hover:underline">
                             Your Articles
                             </h1>
