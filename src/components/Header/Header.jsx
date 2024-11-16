@@ -3,7 +3,7 @@ import { LogoutBtn, Container } from "../";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import {Logo} from "../index";
 import { SlHome } from "react-icons/sl";
 const Header = () => {
   const authstatus = useSelector((state) => state.auth.status);
@@ -15,7 +15,7 @@ const Header = () => {
     { name: <SlHome />, slug: "/", active: true },
     { name: "Login", slug: "/login", active: !authstatus },
     { name: "Signup", slug: "/signup", active: !authstatus },
-    { name: "All Posts", slug: "/all-posts", active: authstatus },
+    { name: "My Posts", slug: "/my-posts", active: authstatus },
     { name: "Add Post", slug: "/add-post", active: authstatus },
   ];
 
@@ -25,7 +25,8 @@ const Header = () => {
         <nav className="flex items-center justify-between">
           <div className="text-xl font-bold  hidden md:block">
             
-            {authstatus && username}
+            {/* {authstatus && username} */}
+            <Logo/>
           </div>
           <ul className="flex items-center space-x-6">
             {navItem.map((item) =>

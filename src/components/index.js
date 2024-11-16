@@ -12,6 +12,7 @@ import Signup from "./Signup/Signup";
 import RTE from "./RTE/RTE"
 import PostForm from "./PostForm/Postform";
 import AuthLayout from "./AuthLayout";
+import Logo from './Logo/Logo'
 export{
     Header,
     Footer,
@@ -26,5 +27,6 @@ export{
     Signup,
     RTE,
     PostForm,
-    AuthLayout
+    AuthLayout,
+    Logo
 }

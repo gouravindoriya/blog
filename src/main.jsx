@@ -22,7 +22,9 @@ const router = createBrowserRouter([
     children: [
         {
             path: "/",
-            element: <Homecomponent />,
+            element:(<AuthLayout authentication={false}>
+                     <AllPostcomponent />
+                </AuthLayout>) ,
         },
         {
             path: "/login",
@@ -41,10 +43,10 @@ const router = createBrowserRouter([
             ),
         },
         {
-            path: "/all-posts",
+            path: "/my-posts",
             element: (
                 <AuthLayout authentication>
-                    <AllPostcomponent />
+                  <Homecomponent /> 
                 </AuthLayout>
             ),
         },
