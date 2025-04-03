@@ -1,0 +1,7 @@
+// create vercel.json file in root directory and paste the code
+
+{
+    "rewrites": [
+        {"source": "/(.*)", "destination": "/"}
+    ]
+}
