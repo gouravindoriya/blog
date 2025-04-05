@@ -14,7 +14,7 @@ import Logincomponent from './components/pages/Logincomponent.jsx';
 import Postcomponent from './components/pages/Postcomponent.jsx';
 import Editpostcomponent from './components/pages/Editpostcomponent.jsx';
 import Signupcomponent from './components/pages/Signupcomponent.jsx';
-
+import Home from './components/pages/Home.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,8 +23,16 @@ const router = createBrowserRouter([
         {
             path: "/",
             element:(<AuthLayout authentication={false}>
-                     <AllPostcomponent />
+                     <Home/>
                 </AuthLayout>) ,
+        },
+        {
+            path: "/allposts",
+            element:(
+            // <AuthLayout authentication={false}>
+                     <AllPostcomponent />
+                //  </AuthLayout>
+                 ) ,
         },
         {
             path: "/login",

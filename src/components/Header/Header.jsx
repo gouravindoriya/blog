@@ -8,15 +8,17 @@ import { SlHome } from "react-icons/sl";
 const Header = () => {
   const authstatus = useSelector((state) => state.auth.status);
   const navigate = useNavigate();
-  const username=useSelector((state) => state.auth.userdata?.name);
+  // const username=useSelector((state) => state.auth.userdata?.name);
 
  
   const navItem = [
     { name: <SlHome />, slug: "/", active: true },
+    { name: "All Posts", slug: "/allposts", active: true },
     { name: "Login", slug: "/login", active: !authstatus },
     { name: "Signup", slug: "/signup", active: !authstatus },
     { name: "My Posts", slug: "/my-posts", active: authstatus },
     { name: "Add Post", slug: "/add-post", active: authstatus },
+    
   ];
 
   return (

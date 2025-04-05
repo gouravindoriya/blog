@@ -20,6 +20,7 @@ function Homecomponent() {
             <div className="w-full py-8 text-center">
                 <Container>
                     <div className="flex flex-wrap">
+                       
                         <div className="p-2 w-full">
                             <h1 className=" font-mono hover:text-gray-500">
                             You don’t have any posts yet
@@ -32,6 +33,7 @@ function Homecomponent() {
     }
     return (
         <div className='px-8'>
+            
             <h1 className="font-bold  p-4  font-mono hover:underline">
                             Your Articles
                             </h1>

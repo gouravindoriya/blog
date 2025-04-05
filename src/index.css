@@ -93,15 +93,22 @@ html.has-scroll-smooth {
 
 /* Headings */
 .custom-css h1, .custom-css h2, .custom-css h3, .custom-css h4, .custom-css h5, .custom-css h6 {
-    color: #444;
+    color: #000000;
     margin-bottom: 0.5em;
     font-weight: 700;
     line-height: 1.2;
+    padding: 0.2em;
+  
+}
+.custom-css h1, .custom-css h2, .custom-css h3  {
+  /* background: gradient(90deg, #97f6ff 0%, #817bcb 100%); */
+  background-color: #edededfc;
+  
 }
 
 .custom-css h1 { font-size: 2.5rem; }
-.custom-css h2 { font-size: 2rem; }
-.custom-css h3 { font-size: 1.75rem; }
+.custom-css h2 { font-size: 2rem;}
+.custom-css h3 { font-size: 1.75rem;}
 .custom-css h4 { font-size: 1.5rem; }
 .custom-css h5 { font-size: 1.25rem; }
 .custom-css h6 { font-size: 1rem; }
@@ -109,7 +116,7 @@ html.has-scroll-smooth {
 /* Paragraphs */
 .custom-css p {
     margin-bottom: 1em;
-    color: #555;
+    color: #000000;
 }
 
 /* Links */
